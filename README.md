@@ -19,9 +19,13 @@ To run the Card Scanner program WITH Bluetooth:
 6.	python clean.py
 
 Understanding the other files in the “card_scanner” folder
+
 •	login_manager.csv
+
     o	This is the file that the main script writes to every time a card is scanned. Every scan is time-stamped and is also         logs the users name/unique identifier. If the user is new, just the time-stamp and unique identifier is logged.
 •	stored_data.csv
-    o	This file is the local database that stores the first/last name and the unique identifier of the user’s ID. In order to     add a user to the database, scan their ID and you will see a message on the LCD screen that reads: “New User .. ID:           _______”. Remember this ID number and input the value into a new row in the database. Proceed by entering that users first     and last name into the columns that follow “ID”.
+
+    o	This file is the local database that stores the first/last name and the unique identifier of the user’s ID. In order        to add a user to the database, scan their ID and you will see a message on the LCD screen that reads: “New User .. ID:        _______”. Remember this ID number and input the value into a new row in the database. Proceed by entering that users          first and last name into the columns that follow “ID”.
 •	Stored_data_backup.csv
+
     o	This is a backup of the original “stored_data.csv” file. Given that the python script is reading and writing to the csv     file, I wanted to have a backup incase the file unexpectedly corrupted.
