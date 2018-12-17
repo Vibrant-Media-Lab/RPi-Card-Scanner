@@ -1,3 +1,5 @@
+# This is the fully functioning script to run the RPi in conjunction with the HC-05 bluetooth module on the Arduino Uno. 
+
 import binascii
 import sys
 import Adafruit_PN532 as PN532
@@ -48,6 +50,7 @@ def send_serial_ble(value):
     bluetooth.write(b"BOOP "+str.encode(str(value)))#These need to be bytes not unicode, plus a number
     bluetooth.close() #Otherwise the connection will remain open until a timeout which ties up the /dev/thingamabob
 
+# Displays IP address on RPi's 1602A LCD Screen
 try:
     while 1:
         lcd.clear()
@@ -131,10 +134,11 @@ try:
                 new_data =[data[line][0],data[line][1],data[line][2],data[line][3]]
                 writer.writerow(new_data)
                     
-            
+# Create an escape method for the case that the program freezes up or the user no longer has access to the terminal
 except KeyboardInterrupt:
     print('CTRL-C pressed.  Program exiting...')
-
+    
+# Display the closing message on the LCD screen
 finally:
     lcd.clear()
     lcd.message('CTRL-C Pressed\n')
