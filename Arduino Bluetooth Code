@@ -1,3 +1,5 @@
+#This arduino code will allow for the acceptance of serial data from the connected RPi
+
 #include <SoftwareSerial.h>
 SoftwareSerial Bluetooth(10, 9); // RX, TX
 int LED = 13; // the on-board LED
