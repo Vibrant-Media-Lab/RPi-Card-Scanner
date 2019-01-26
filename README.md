@@ -18,6 +18,43 @@ An expandable IoT system that scans an RFID card, authenticates with a database,
 5.	cd Desktop/card_scanner
 6.	python clean.py
 
+## *To run the python script on boot*
+
+*There are many ways to execute run a script on boot, but the method I chose was by using autostart*
+
+*If you need access to elements from the X Window System (e.g. you are making a graphical dashboard or game), then you will need to wait for the X server to finish initializing before running your code. One way to accomplish this is to use the `autostart` system.*
+
+> Note: Raspbian is based on the LXDE desktop environment. As a result, the location of the autostart script might be different depending on your particular Linux computer and distribution version.
+
+*After your desktop environment starts (LXDE-pi, in this case), it runs whatever commands it finds in the profile’s autostart script, which is located at /home/pi/.config/lxsession/LXDE-pi/autostart for our Raspberry Pi. Note that the directory pi might be different if you created a new user for your Raspberry Pi. If no user autostart script is found, Linux will run the global /etc/xdg/lxsession/LXDE-pi/autostart script instead.*
+
+*In addition to running commands in autostart, Linux will also look for and execute .desktop scripts found in /home/pi/.config/autostart. The easiest way to execute GUI programs on boot is to create one of these .desktop scripts.*
+
+1. Create a .desktop file
+
+*You do not need root-level access to modify your profile’s (user’s) autostart and .desktop files. In fact, it is recommended that you do not use sudo, as you may affect the permissions of the file (e.g. the file would be owned by root) and make them unable to be executed by autostart (which has user-level permissions).*
+
+Open a terminal, and execute the following commands to create an autostart directory (if one does not already exist) and edit a .desktop file:
+
+```
+mkdir /home/pi/.config/autostart
+nano /home/pi/.config/autostart/clock.dekstop
+```
+
+Copy in the following text into the card_scanner.desktop file. Feel free to change the Name and Exec variables.
+
+```
+[Desktop Entry]
+Type=Application
+Name=card_scanner
+Exec=/usr/bin/python /home/pi/clean.py
+```
+Save and exit with ctrl + x, followed by y when prompted to save, and then enter. Reboot with:
+
+```
+sudo reboot
+```
+
 ## *Understanding the other files in the “card_scanner” folder*
 
 #### login_manager.csv
