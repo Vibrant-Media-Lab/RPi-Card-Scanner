@@ -38,7 +38,7 @@ Open a terminal, and execute the following commands to create an autostart direc
 
 ```
 mkdir /home/pi/.config/autostart
-nano /home/pi/.config/autostart/clock.dekstop
+nano /home/pi/.config/autostart/clean.dekstop
 ```
 
 Copy in the following text into the card_scanner.desktop file. Feel free to change the Name and Exec variables.
@@ -47,7 +47,7 @@ Copy in the following text into the card_scanner.desktop file. Feel free to chan
 [Desktop Entry]
 Type=Application
 Name=card_scanner
-Exec=/usr/bin/python /home/pi/clean.py
+Exec=/usr/bin/python /home/pi/clean.py <- Insert absolute address of the python script. This may be different for you.
 ```
 Save and exit with ctrl + x, followed by y when prompted to save, and then enter. Reboot with:
 
