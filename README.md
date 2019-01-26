@@ -20,7 +20,7 @@ An expandable IoT system that scans an RFID card, authenticates with a database,
 
 ## *To run the python script on boot*
 
-*There are many ways to execute run a script on boot, but the method I chose was by using autostart*
+*There are many methods of running a script on boot, but the method I chose leverages autostart*
 
 *If you need access to elements from the X Window System (e.g. you are making a graphical dashboard or game), then you will need to wait for the X server to finish initializing before running your code. One way to accomplish this is to use the `autostart` system.*
 
