@@ -30,7 +30,7 @@ An expandable IoT system that scans an RFID card, authenticates with a database,
 
 *In addition to running commands in autostart, Linux will also look for and execute .desktop scripts found in /home/pi/.config/autostart. The easiest way to execute GUI programs on boot is to create one of these .desktop scripts.*
 
- - Create a .desktop file
+###### Create a .desktop file
 
 *You do not need root-level access to modify your profile’s (user’s) autostart and .desktop files. In fact, it is recommended that you do not use sudo, as you may affect the permissions of the file (e.g. the file would be owned by root) and make them unable to be executed by autostart (which has user-level permissions).*
 
@@ -49,6 +49,8 @@ Type=Application
 Name=card_scanner
 Exec=/usr/bin/python /home/pi/clean.py <- Insert absolute address of the python script. This may be different for you.
 ```
+> Note: the */usr/bin/python* section of the Exec variable specifies the version of python that your script requires. For this project, only python2 is required, so */usr/bin/python* is okay. If you add some additional functionality and find yourself needing to use python3, replace */usr/bin/python* with */usr/bin/python3*
+
 Save and exit with ctrl + x, followed by y when prompted to save, and then enter. Reboot with:
 
 ```
