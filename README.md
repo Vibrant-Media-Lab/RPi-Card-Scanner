@@ -38,7 +38,7 @@ Open a terminal, and execute the following commands to create an autostart direc
 
 ```
 mkdir /home/pi/.config/autostart
-nano /home/pi/.config/autostart/clean.dekstop
+nano /home/pi/.config/autostart/card_scanner.desktop
 ```
 
 Copy in the following text into the card_scanner.desktop file. Feel free to change the Name and Exec variables.
